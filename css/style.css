@@ -74,6 +74,8 @@ footer {
 
 #social{
   display: flex;
+  color: bisque;
+  background-color: #e73c7e;
 }
 
 #navBar {
