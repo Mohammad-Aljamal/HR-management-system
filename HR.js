@@ -44,6 +44,7 @@ Employee.prototype.render = function (){
 
     this.salaryCalculating();
     console.log(`Employee name ${this.eName} with Salary ${this.Salary} JD`);
+    document.write(`<br/>Employee name ${this.eName} with Salary ${this.Salary} JD<br/>`);
 
 }
 

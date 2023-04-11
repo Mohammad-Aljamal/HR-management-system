@@ -5,6 +5,22 @@ header {
   align-items: center;
 }
 
+.links {
+  /* border: 2px solid rgb(197, 179, 11); */
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.links a {
+  text-decoration: none;
+  color: wheat;
+  font-size: 25px;
+}
+.links a img {
+  width: 50px;
+  height: 40px;
+}
 #mainTitel {
   display: flex;
   margin: 0;
@@ -13,21 +29,18 @@ header {
 }
 
 button {
-    margin-left: 10px;
-    border: 10px;
-    padding: 10px;
-    width: 60px;
-    height: 30px;
-    background-color:bisque;
-
-      
-
+  margin-left: 20px;
+  border: 10px;
+  padding: 10px;
+  width: 100px;
+  height: 30px;
+  background-color: bisque;
 }
 
 h1 {
-    margin: 0;
-    display: flex;
-    justify-content: center;
+  margin: 0;
+  display: flex;
+  justify-content: center;
 }
 
 body {
@@ -61,24 +74,18 @@ footer {
   background-color: #810830;
   color: bisque;
   display: flex;
-  align-items: center;
-  align-content: end;
   position: fixed;
+  justify-content: space-around;
 }
 
-#copy{
+/* #copy{
     display: flex;
     justify-content: center;
-}
-
-
-#social{
-  display: flex;
-  color: bisque;
-  background-color: #e73c7e;
-}
-
-#navBar {
+    align-items: center;
+    border: 2px solid black;
+    /* align-content: end; */
+/* } */
+*/ #navBar {
   display: flex;
   justify-content: center;
 }
