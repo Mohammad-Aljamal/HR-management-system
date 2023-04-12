@@ -11,9 +11,12 @@
 
   <body>
     <header>
-      <!-- <div id="mainTitel">
-      </div> -->
+      <div id="pagTitel"><h1>HR-Management System</h1></div>
+      
+    </header>
 
+    <main>
+      
       <nav id="navBar">
         <button type="button">
           <a href="./index.html">Home</a>
@@ -23,17 +26,48 @@
         </button>
         <button type="button">Info</button>
       </nav>
-    </header>
-
-    <main>
+      <!-- <h1>HR-Management System</h1> -->
       <br /><br />
-      <h1>HR-Management System</h1>
-      <br /><br />
-
-      <script src="./HR.js"></script>
+      <section id="employeeSection">
+        <form id="employeeForm">
+          <fieldset>
+            <legend>New Employee Data</legend>
+            <label for="eName">Employee Name:</label>
+            <input
+              type="text"
+              id="eName"
+              name="eName"
+              placeholder="Enter the Employee Name"
+            />
+            <br />
+            <label for="Department">Department:</label>
+            <select name="Department" id="Department">
+              <option value="Administration">Administration</option>
+              <option value="Marketing">Marketing</option>
+              <option value="Development">Development</option>
+              <option value="Finance">Finance</option>
+            </select>
+            <br />
+            <label for="Level">Level:</label>
+            <select name="Level" id="Level">
+              <option value="Junior">Junior</option>
+              <option value="Mid-Senior">Mid-Senior</option>
+              <option value="Senior">Senior</option>
+            </select>
+            <br />
+            <label for="eImage">Employee Image url:</label>
+            <input
+              type="url"
+              id="eImage"
+              name="eImage"
+              placeholder="Enter the Employee Image URL"
+            />
+            <br />
+            <input type="submit" value="Add Employee" />
+          </fieldset>
+        </form>
+      </section>
     </main>
-    <br />
-    <br /><br /><br /><br /><br />
     <footer id="fixedFooter">
       <div id="copy">
         <p style="text-align: center"></p>
@@ -47,13 +81,13 @@
           target="_blank"
           ><img src="./assest/LinkedIn_logo.png"
         /></a>
-        <a
-          href="https://web.facebook.com/"
-          target="_blank"
+        <a href="https://web.facebook.com/" target="_blank"
           ><img
             src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg"
         /></a>
       </div>
     </footer>
+
+    <script src="./HR.js"></script>
   </body>
 </html>
