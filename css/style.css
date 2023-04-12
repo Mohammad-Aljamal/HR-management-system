@@ -37,11 +37,6 @@ button {
   background-color: bisque;
 }
 
-h1 {
-  margin: 0;
-  display: flex;
-  justify-content: center;
-}
 
 body {
   margin: 0;
@@ -89,3 +84,20 @@ footer {
   display: flex;
   justify-content: center;
 }
+
+#pagTitel h1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  color: rgb(255, 255, 255);
+  font-family: serif;
+  
+}
+
+#mainImg {
+  border-radius: 50%;
+
+}
+
