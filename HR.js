@@ -2,6 +2,20 @@
 
 let myForm = document.getElementById("employeeForm");
 let employeeSection = document.getElementById("employeeSection");
+// let ourData = document.getElementById("ourData");
+let AdministrationDiv =document.getElementById("Administration");
+let MarketingDiv =document.getElementById("Marketing");
+let DevelopmentDiv =document.getElementById("Development");
+let FinanceDiv =document.getElementById("Finance");
+
+let Administrationh2 = document.getElementById("Administrationh2");
+let Marketingh2 = document.getElementById("Marketingh2");
+let Developmenth2 = document.getElementById("Developmenth2");
+let Financeh2 = document.getElementById("Financeh2");
+
+
+
+
 let employee = [];
 let IDArr = [];
 
@@ -36,13 +50,13 @@ Employee.prototype.salaryCalculating = function () {
 
   if (this.Level == "junior") {
     this.Salary = Math.floor(Math.random() * (1000 - 500 + 1)) + 500;
-    this.Salary = this.Salary * (1 - 0.075);
+    this.Salary = Math.floor(this.Salary * (1 - 0.075));
   } else if (this.Level == "mid-senior") {
     this.Salary = Math.floor(Math.random() * (1500 - 1000 + 1)) + 1000;
-    this.Salary = this.Salary * (1 - 0.075);
+    this.Salary = Math.floor(this.Salary * (1 - 0.075));
   } else if (this.Level == "senior") {
     this.Salary = Math.floor(Math.random() * (2000 - 1500 + 1)) + 1500;
-    this.Salary = this.Salary * (1 - 0.075);
+    this.Salary = Math.floor(this.Salary * (1 - 0.075));
   }
 
   // let netSal = randSal - randSal*0.075;
@@ -64,31 +78,79 @@ Employee.prototype.render = function () {
 
   // console.log(`Employee name ${this.eName} with Salary ${this.Salary} JD`);
   // document.write(`<br/>Employee name ${this.eName} with Salary ${this.Salary} JD<br/>`);
+
+let card = document.createElement('div');
+card.classList.add("cardStyle")
+
   const Image = document.createElement("img");
   Image.src = this.eImage;
-  Image.style.width = "70px";
   Image.id = "mainImg";
-  employeeSection.appendChild(Image);
 
   const Name = document.createElement("h5");
   Name.textContent = `Name: ${this.eName}`;
-  employeeSection.appendChild(Name);
 
   const ID = document.createElement("h5");
   ID.textContent = `ID: ${this.eID}`;
-  employeeSection.appendChild(ID);
 
   const Department = document.createElement("h5");
   Department.textContent = `Department: ${this.Department}`;
-  employeeSection.appendChild(Department);
 
   const Level = document.createElement("h5");
   Level.textContent = `Level: ${this.Level}`;
-  employeeSection.appendChild(Level);
 
   const Salary = document.createElement("h5");
   Salary.textContent = `Salary: ${this.Salary}`;
-  employeeSection.appendChild(Salary);
+
+  if (this.Department == "Administration"){
+
+    Administrationh2.style.display = 'block';
+    card.appendChild(Image);
+    card.appendChild(Name);
+    card.appendChild(ID);
+    card.appendChild(Department);
+    card.appendChild(Level);
+    card.appendChild(Salary);
+
+    AdministrationDiv.appendChild(card);
+  }
+  else  if (this.Department == "Marketing"){
+
+    Marketingh2.style.display = 'block';
+    card.appendChild(Image);
+    card.appendChild(Name);
+    card.appendChild(ID);
+    card.appendChild(Department);
+    card.appendChild(Level);
+    card.appendChild(Salary);
+
+    MarketingDiv.appendChild(card);
+  }
+  else if (this.Department == "Development"){
+
+    Developmenth2.style.display = 'block';
+
+    card.appendChild(Image);
+    card.appendChild(Name);
+    card.appendChild(ID);
+    card.appendChild(Department);
+    card.appendChild(Level);
+    card.appendChild(Salary);
+
+    DevelopmentDiv.appendChild(card);
+  }
+  else if (this.Department == "Finance"){
+    Financeh2.style.display = 'block';
+
+    card.appendChild(Image);
+    card.appendChild(Name);
+    card.appendChild(ID);
+    card.appendChild(Department);
+    card.appendChild(Level);
+    card.appendChild(Salary);
+
+    FinanceDiv.appendChild(card);
+  }
+
 };
 
 function saveData(data) {

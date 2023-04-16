@@ -3,7 +3,6 @@
 let tableData = document.getElementById("table");
 let employees = [];
 
-
 let AdministrationCount = 0;
 let MarketingCount = 0;
 let DevelopmentCount = 0;
@@ -23,54 +22,66 @@ let FinanceAvgSalary = 0;
 let netAvgSalary = 0;
 
 
+
 function renderData(){
+
+
 
 
 for (let i=0; i<employees.length ; i++){
   if (employees[i].Department == "Administration"){
     AdministrationCount ++;
-    AdministrationSalary += employees[i].salaryCalculating();
-    AdministrationAvgSalary = AdministrationSalary/AdministrationCount;
+    AdministrationSalary += Math.floor(employees[i].Salary);
+    AdministrationAvgSalary = Math.floor(AdministrationSalary/AdministrationCount);
   }
   if (employees[i].Department == "Marketing"){
     MarketingCount ++;
-    MarketingSalary += employees[i].salaryCalculating();
-    MarketingAvgSalary = MarketingSalary/MarketingCount;
+    MarketingSalary += Math.floor(employees[i].Salary);
+    MarketingAvgSalary = Math.floor(MarketingSalary/MarketingCount);
 
   }
   if (employees[i].Department == "Development"){
     DevelopmentCount ++;
-    DevelopmentSalary += employees[i].salaryCalculating();
-    DevelopmentAvgSalary = DevelopmentSalary/DevelopmentCount;
+    DevelopmentSalary += Math.floor(employees[i].Salary);
+    DevelopmentAvgSalary = Math.floor(DevelopmentSalary/DevelopmentCount);
 
   }
   if (employees[i].Department == "Finance"){
     FinanceCount ++;
-    FinanceSalary += employees[i].salaryCalculating();
-    FinanceAvgSalary = FinanceSalary/FinanceCount;
+    FinanceSalary += Math.floor(employees[i].Salary);
+    FinanceAvgSalary = Math.floor(FinanceSalary/FinanceCount);
 
   }
 }
 netEmployeesCount = AdministrationCount+MarketingCount+DevelopmentCount+FinanceCount;
-netSalary = AdministrationSalary+MarketingSalary+DevelopmentSalary+FinanceSalary;
-netAvgSalary = netSalary/netEmployeesCount;
+netSalary = Math.floor(AdministrationSalary+MarketingSalary+DevelopmentSalary+FinanceSalary);
+netAvgSalary = Math.floor(netSalary/netEmployeesCount);
 }
+
+getData();
+renderData();
+
+console.log(AdministrationCount);
+console.log(DevelopmentCount);
+console.log(MarketingCount);
+console.log(FinanceCount);
+
 
 
 let tr1 = document.createElement('tr');
 tableData.appendChild(tr1);
 let thEl = document.createElement('th');
 thEl.textContent = "Department";
-tableData.appendChild(thEl);
+tr1.appendChild(thEl);
 let thEmp = document.createElement('th');
 thEmp.textContent = "# of Employees";
-tableData.appendChild(thEmp);
+tr1.appendChild(thEmp);
 let thSalary = document.createElement('th');
 thSalary.textContent = "Total Salary";
-tableData.appendChild(thSalary);
+tr1.appendChild(thSalary);
 let thAvg = document.createElement('th');
 thAvg.textContent = "Average salary";
-tableData.appendChild(thAvg);
+tr1.appendChild(thAvg);
 
 // -----------------------------------------| Administration |------------------------------
 
@@ -78,16 +89,16 @@ let tr2 = document.createElement('tr');
 tableData.appendChild(tr2);
 let tdAdmin = document.createElement('td');
 tdAdmin.textContent = "Administration";
-tableData.appendChild(thtdAdmin);
+tr2.appendChild(tdAdmin);
 let tdAdminEmp = document.createElement('td');
 tdAdminEmp.textContent = `${AdministrationCount}`;
-tableData.appendChild(tdAdminEmp);
+tr2.appendChild(tdAdminEmp);
 let tdAdminSalary = document.createElement('td');
 tdAdminSalary.textContent = `${AdministrationSalary}`;
-tableData.appendChild(tdAdminSalary);
+tr2.appendChild(tdAdminSalary);
 let tdAdminAvg = document.createElement('td');
 tdAdminAvg.textContent = `${AdministrationAvgSalary}`;
-tableData.appendChild(tdAdminAvg);
+tr2.appendChild(tdAdminAvg);
 
 // -----------------------------------------| Marketing |------------------------------
 
@@ -95,16 +106,16 @@ let tr3 = document.createElement('tr');
 tableData.appendChild(tr3);
 let tdMarket = document.createElement('td');
 tdMarket.textContent = "Marketing";
-tableData.appendChild(tdMarket);
+tr3.appendChild(tdMarket);
 let tdMarketEmp = document.createElement('td');
 tdMarketEmp.textContent = `${MarketingCount}`;
-tableData.appendChild(tdMarketEmp);
+tr3.appendChild(tdMarketEmp);
 let tdMarketSalary = document.createElement('td');
 tdMarketSalary.textContent = `${MarketingSalary}`;
-tableData.appendChild(tdMarketSalary);
+tr3.appendChild(tdMarketSalary);
 let tdMarketAvg = document.createElement('td');
 tdMarketAvg.textContent = `${MarketingAvgSalary}`;
-tableData.appendChild(tdMarketAvg);
+tr3.appendChild(tdMarketAvg);
 
 // -----------------------------------------| Development |------------------------------
 
@@ -112,16 +123,16 @@ let tr4 = document.createElement('tr');
 tableData.appendChild(tr4);
 let tdDevelop = document.createElement('td');
 tdDevelop.textContent = "Development";
-tableData.appendChild(tdDevelop);
+tr4.appendChild(tdDevelop);
 let tdDevelopEmp = document.createElement('td');
 tdDevelopEmp.textContent = `${DevelopmentCount}`;
-tableData.appendChild(tdDevelopEmp);
+tr4.appendChild(tdDevelopEmp);
 let tdDevelopSalary = document.createElement('td');
 tdDevelopSalary.textContent = `${DevelopmentSalary}`;
-tableData.appendChild(tdDevelopSalary);
+tr4.appendChild(tdDevelopSalary);
 let tdDevelopAvg = document.createElement('td');
 tdDevelopAvg.textContent = `${DevelopmentAvgSalary}`;
-tableData.appendChild(tdDevelopAvg);
+tr4.appendChild(tdDevelopAvg);
 
 // -----------------------------------------| Finance |------------------------------
 
@@ -129,16 +140,16 @@ let tr5 = document.createElement('tr');
 tableData.appendChild(tr5);
 let tdFinance = document.createElement('td');
 tdFinance.textContent = "Finance";
-tableData.appendChild(tdFinance);
+tr5.appendChild(tdFinance);
 let tdFinanceEmp = document.createElement('td');
 tdFinanceEmp.textContent = `${FinanceCount}`;
-tableData.appendChild(tdFinanceEmp);
+tr5.appendChild(tdFinanceEmp);
 let tdFinanceSalary = document.createElement('td');
 tdFinanceSalary.textContent = `${FinanceSalary}`;
-tableData.appendChild(tdFinanceSalary);
+tr5.appendChild(tdFinanceSalary);
 let tdFinanceAvg = document.createElement('td');
 tdFinanceAvg.textContent = `${FinanceAvgSalary}`;
-tableData.appendChild(tdFinanceAvg);
+tr5.appendChild(tdFinanceAvg);
 
 // -----------------------------------------| Total |------------------------------
 
@@ -146,16 +157,16 @@ let tr6 = document.createElement('tr');
 tableData.appendChild(tr6);
 let tdTotal = document.createElement('td');
 tdTotal.textContent = "Total:";
-tableData.appendChild(tdTotal);
+tr6.appendChild(tdTotal);
 let tdTotalEmp = document.createElement('td');
 tdTotalEmp.textContent = `${netEmployeesCount}`;
-tableData.appendChild(tdTotalEmp);
+tr6.appendChild(tdTotalEmp);
 let tdTotalSalary = document.createElement('td');
 tdTotalSalary.textContent = `${netSalary}`;
-tableData.appendChild(tdTotalSalary);
+tr6.appendChild(tdTotalSalary);
 let tdTotalAvg = document.createElement('td');
-tdTotalAvg.textContent = `${netAvgSalary}}`;
-tableData.appendChild(tdTotalAvg);
+tdTotalAvg.textContent = `${netAvgSalary}`;
+tr6.appendChild(tdTotalAvg);
 
 
 
