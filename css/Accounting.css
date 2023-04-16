@@ -1,12 +1,21 @@
-section{
+#employeeSection{
     display: flex;
     justify-content: center;
+    margin-top: 50px;
+
+    
 }
 
-table,td,th {
+table{
     /* margin: 0; */
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
     border: 1px solid;
     padding: 30px;
+}
+
+td,th {
+    border: 1px solid;
+    padding: 30px;
+    text-align: center;
 }
