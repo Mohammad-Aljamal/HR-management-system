@@ -2,6 +2,8 @@ header {
   background-color: #810830;
   min-height: 100px;
   display: flex;
+  flex-direction: column;
+
   align-items: center;
 }
 
@@ -37,7 +39,6 @@ button {
   background-color: bisque;
 }
 
-
 body {
   margin: 0;
   /* background-color: bisque; */
@@ -61,7 +62,6 @@ body {
 }
 
 footer {
-  /* position: fixed; */
   width: 100%;
   left: 0;
   bottom: 0;
@@ -72,6 +72,8 @@ footer {
   position: fixed;
   justify-content: space-around;
 }
+
+
 
 /* #copy{
     display: flex;
@@ -85,7 +87,7 @@ footer {
   justify-content: center;
 }
 
-#pagTitel h1{
+#pagTitel h1 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,11 +95,8 @@ footer {
   align-content: center;
   color: rgb(255, 255, 255);
   font-family: serif;
-  
 }
 
 #mainImg {
   border-radius: 50%;
-
 }
-

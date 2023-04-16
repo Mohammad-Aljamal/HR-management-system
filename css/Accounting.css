@@ -1,0 +1,12 @@
+section{
+    display: flex;
+    justify-content: center;
+}
+
+table,td,th {
+    /* margin: 0; */
+    display: flex;
+    justify-content: center;
+    border: 1px solid;
+    padding: 30px;
+}
