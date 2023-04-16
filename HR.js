@@ -16,7 +16,7 @@ function Employee(eName, Department, Level, eImage) {
   employee.push(this);
 }
 
-myForm.addEventListener('submit', handdleClick);
+myForm.addEventListener("submit", handdleClick);
 
 function handdleClick(event) {
   event.preventDefault();
@@ -27,6 +27,7 @@ function handdleClick(event) {
 
   let newEmployee = new Employee(eName, Department, Level, eImage);
   newEmployee.render();
+  saveData(employee);
 }
 
 Employee.prototype.salaryCalculating = function () {
@@ -50,47 +51,71 @@ Employee.prototype.salaryCalculating = function () {
 Employee.prototype.employeeID = function () {
   this.eID = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
 
-//   IDArr.push(this.eID);
+  //   IDArr.push(this.eID);
 
-//   for (let i=0; i<IDArr.length-1 ; i++){
-    
-//   }
+  //   for (let i=0; i<IDArr.length-1 ; i++){
+
+  //   }
 };
 
 Employee.prototype.render = function () {
   this.employeeID();
   this.salaryCalculating();
+
   // console.log(`Employee name ${this.eName} with Salary ${this.Salary} JD`);
   // document.write(`<br/>Employee name ${this.eName} with Salary ${this.Salary} JD<br/>`);
-  const Image = document.createElement('img');
+  const Image = document.createElement("img");
   Image.src = this.eImage;
-  Image.style.width = '70px';
-Image.id = 'mainImg';
+  Image.style.width = "70px";
+  Image.id = "mainImg";
   employeeSection.appendChild(Image);
 
-  const Name = document.createElement('h5');
+  const Name = document.createElement("h5");
   Name.textContent = `Name: ${this.eName}`;
   employeeSection.appendChild(Name);
 
-  const ID = document.createElement('h5');
+  const ID = document.createElement("h5");
   ID.textContent = `ID: ${this.eID}`;
   employeeSection.appendChild(ID);
 
-  const Department = document.createElement('h5');
+  const Department = document.createElement("h5");
   Department.textContent = `Department: ${this.Department}`;
   employeeSection.appendChild(Department);
 
-  const Level = document.createElement('h5');
+  const Level = document.createElement("h5");
   Level.textContent = `Level: ${this.Level}`;
   employeeSection.appendChild(Level);
 
-  const Salary = document.createElement('h5');
+  const Salary = document.createElement("h5");
   Salary.textContent = `Salary: ${this.Salary}`;
   employeeSection.appendChild(Salary);
-
-
-
 };
+
+function saveData(data) {
+  let stringify = JSON.stringify(data);
+  localStorage.setItem("employee", stringify);
+}
+
+function getData() {
+  let retreivedData = localStorage.getItem("employee");
+  let arrayData = JSON.parse(retreivedData);
+
+  if (arrayData != null) {
+    for (let i = 0; i < arrayData.length; i++) {
+      new Employee(
+        arrayData[i].eName,
+        arrayData[i].Department,
+        arrayData[i].Level,
+        arrayData[i].eImage
+      );
+      employee[i].employeeID();
+      employee[i].salaryCalculating();
+      employee[i].render();
+    }
+  }
+}
+
+getData();
 
 // let ghaziSamer	= new Employee(1000, 'Ghazi Samer', 'Administration', 'Senior', './assest/employee1.png');
 // let lanaAli	= new Employee(1001, 'Lana Ali', 'Finance', 'Senior', './assest/employee1.png');
